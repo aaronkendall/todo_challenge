@@ -1,6 +1,6 @@
 <!doctype html>
 
-<html lang="en" ng-app="toDo">
+<html lang="en" ng-app="toDoList">
   <head>
     <meta charset="utf-8">
     <title>Things you have to do</title>
@@ -12,43 +12,26 @@
     <script src="js/toDoController.js"></script>
   </head>
 
-  <body>
-    <div class="col-md-offset-2 col-md-8">
-      <div class="col-md-1">
-        <div class="list-group">
-          <button type="button" class="list-group-item" href="#">
-            <span class="glyphicon glyphicon-ok"></span>
-          </button>
-          <button type="button" class="list-group-item" href="#">
-            <span class="glyphicon glyphicon-ok"></span>
-          </button>
-          <button type="button" class="list-group-item" href="#">
-            <span class="glyphicon glyphicon-ok"></span>
-          </button>
+  <body ng-controller="toDoController as todo">
+    <div class="col-md-offset-2 col-md-8 text-center">
+      <div class="col-md-offset-2 col-md-8 text-center">
+        <div class="input-group">
+          <input type="text" ng-model="string" class="form-control" placeholder="Add new task" aria-describedby="basic-addon1">
+          <span class="input-group-btn">
+            <button class="btn btn-default" ng-click="todo.newActiveTask(string)"type="button">Add!</button>
+          </span>
         </div>
       </div>
-      <div class="col-md-10">
+      <div class="col-md-12">
         <ul class="list-group">
-          <li class="list-group-item">Do a thing</li>
-          <li class="list-group-item">Do another thing</li>
-          <li class="list-group-item">Do some coding</li>
+          <li class="list-group-item" ng-repeat="taskList in todo.activeTasks">
+            <button type="button" class="btn btn-xs btn-success"><span class="glyphicon glyphicon-ok"></span></button>
+            {{taskList.task}}
+            <button type="button" ng-click="todo.deleteTask(taskList)" class="btn btn-xs btn-danger"><span class="glyphicon glyphicon-remove"></span></button>
+          </li>
         </ul>
       </div>
-      <div class="col-md-1">
-        <div class="list-group">
-          <button type="button" class="list-group-item" href="#">
-            <span class="glyphicon glyphicon-remove"></span>
-          </button>
-          <button type="button" class="list-group-item" href="#">
-            <span class="glyphicon glyphicon-remove"></span>
-          </button>
-          <button type="button" class="list-group-item" href="#">
-            <span class="glyphicon glyphicon-remove"></span>
-          </button>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-offset-3 col-md-6">
+    <div class="col-md-offset-2 col-md-8">
       <ul class="nav nav-pills">
         <li role="presentation" class="active"><a href="#">All</a></li>
         <li role="presentation"><a href="#">Active</a></li>
