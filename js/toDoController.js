@@ -1,23 +1,27 @@
 toDoList.controller('toDoController', [function() {
   var self = this;
 
+  self.tab = 1;
+
   self.activeTasks = [
   {
     task: "Do some more coding",
-    active: true,
     complete: false
   },
   {
     task: "Finish this challenge",
-    active: true,
     complete: false
   }
 ];
 
   self.completedTasks = [];
 
+  self.setTab = function(tabNumber) {
+    self.tab = tabNumber;
+  };
+
   self.newActiveTask = function(taskContent) {
-    self.activeTasks.push({task: taskContent, active: true, complete: false});
+    self.activeTasks.push({task: taskContent, complete: false});
   };
 
   self.completedTask = function(task) {
@@ -25,9 +29,14 @@ toDoList.controller('toDoController', [function() {
     self.completedTasks.push(task);
   };
 
-  self.deleteTask = function(task) {
+  self.deleteActiveTask = function(task) {
     var toDelete = self.activeTasks.indexOf(task);
     self.activeTasks.splice(toDelete, 1);
+  };
+
+  self.deleteCompletedTask = function(task) {
+    var completeToDelete = self.completedTasks.indexOf(task);
+    self.completedTasks.splice(completeToDelete, 1);
   };
 
 

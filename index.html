@@ -22,22 +22,48 @@
           </span>
         </div>
       </div>
-      <div class="col-md-12">
+
+      <div ng-show="todo.tab === 1" class="col-md-12">
         <ul class="list-group">
           <li class="list-group-item" ng-hide="taskList.complete" ng-repeat="taskList in todo.activeTasks">
             <button type="button" ng-click="todo.completedTask(taskList)" class="btn btn-xs btn-success"><span class="glyphicon glyphicon-ok"></span></button>
-              {{taskList.task}}
+            {{taskList.task}}
+            <button type="button" ng-click="todo.deleteActiveTask(taskList)" class="btn btn-xs btn-danger"><span class="glyphicon glyphicon-remove"></span></button>
+          </li>
+          <li class="list-group-item" ng-repeat="completeTaskList in todo.completedTasks">
+            {{completeTaskList.task}}
+            <button type="button" ng-click="todo.deleteCompletedTask(taskList)" class="btn btn-xs btn-danger"><span class="glyphicon glyphicon-remove"></span></button>
+          </li>
+        </ul>
+      </div>
+
+      <div ng-show="todo.tab === 2" class="col-md-12">
+        <ul class="list-group">
+          <li class="list-group-item" ng-hide="taskList.complete" ng-repeat="taskList in todo.activeTasks">
+            <button type="button" ng-click="todo.completedTask(taskList)" class="btn btn-xs btn-success"><span class="glyphicon glyphicon-ok"></span></button>
+            {{taskList.task}}
             <button type="button" ng-click="todo.deleteTask(taskList)" class="btn btn-xs btn-danger"><span class="glyphicon glyphicon-remove"></span></button>
           </li>
         </ul>
       </div>
-    <div class="col-md-offset-2 col-md-8">
-      <ul class="nav nav-pills">
-        <li role="presentation" class="active"><a href="#">All</a></li>
-        <li role="presentation"><a href="#">Active</a></li>
-        <li role="presentation"><a href="#">Complete</a></li>
-        <li role="presentation"><a href="#">Clear All</a></li>
-      </ul>
+
+      <div ng-show="todo.tab === 3" class="col-md-12">
+        <ul class="list-group">
+          <li class="list-group-item" ng-repeat="completeTaskList in todo.completedTasks">
+            {{completeTaskList.task}}
+            <button type="button" ng-click="todo.deleteCompletedTask(taskList)" class="btn btn-xs btn-danger"><span class="glyphicon glyphicon-remove"></span></button>
+          </li>
+        </ul>
+      </div>
+
+      <div class="col-md-offset-2 col-md-8">
+        <ul class="nav nav-pills">
+          <li role="presentation" ng-class="{active:todo.tab === 1}"><a href ng-click="todo.setTab(1)">All</a></li>
+          <li role="presentation" ng-class="{active:todo.tab === 2}"><a href ng-click="todo.setTab(2)">Active</a></li>
+          <li role="presentation" ng-class="{active:todo.tab === 3}"><a href ng-click="todo.setTab(3)">Complete</a></li>
+          <li role="presentation"><a href="#">Clear All</a></li>
+        </ul>
+      </div>
     </div>
   </body>
 </html>

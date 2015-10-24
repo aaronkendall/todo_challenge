@@ -11,12 +11,10 @@ describe('toDoController', function() {
     var tasks = [
       {
         task: "Do some more coding",
-        active: true,
         complete: false
       },
       {
         task: "Finish this challenge",
-        active: true,
         complete: false
       }
     ];
