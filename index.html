@@ -61,7 +61,7 @@
           <li role="presentation" ng-class="{active:todo.tab === 1}"><a href ng-click="todo.setTab(1)">All</a></li>
           <li role="presentation" ng-class="{active:todo.tab === 2}"><a href ng-click="todo.setTab(2)">Active</a></li>
           <li role="presentation" ng-class="{active:todo.tab === 3}"><a href ng-click="todo.setTab(3)">Complete</a></li>
-          <li role="presentation"><a href="#">Clear All</a></li>
+          <li role="presentation"><a href ng-click="todo.deleteAll()">Clear All</a></li>
         </ul>
       </div>
     </div>
