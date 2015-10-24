@@ -39,8 +39,7 @@ toDoList.controller('toDoController', [function() {
     self.completedTasks.splice(completeToDelete, 1);
   };
 
-  self.deleteAll = function() {
-    self.activeTasks = [];
+  self.deleteAllCompleted = function() {
     self.completedTasks = [];
   };
 
