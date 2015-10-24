@@ -26,7 +26,7 @@
       <div ng-show="todo.tab === 1" class="col-md-12">
         <ul class="list-group">
           <li class="list-group-item" ng-hide="taskList.complete" ng-repeat="taskList in todo.activeTasks">
-            <button type="button" ng-click="todo.completedTask(taskList)" class="btn btn-xs btn-success"><span class="glyphicon glyphicon-ok"></span></button>
+            <button type="button" ng-click="todo.taskCompleted(taskList)" class="btn btn-xs btn-success"><span class="glyphicon glyphicon-ok"></span></button>
             {{taskList.task}}
             <button type="button" ng-click="todo.deleteActiveTask(taskList)" class="btn btn-xs btn-danger"><span class="glyphicon glyphicon-remove"></span></button>
           </li>
@@ -40,7 +40,7 @@
       <div ng-show="todo.tab === 2" class="col-md-12">
         <ul class="list-group">
           <li class="list-group-item" ng-hide="taskList.complete" ng-repeat="taskList in todo.activeTasks">
-            <button type="button" ng-click="todo.completedTask(taskList)" class="btn btn-xs btn-success"><span class="glyphicon glyphicon-ok"></span></button>
+            <button type="button" ng-click="todo.taskCompleted(taskList)" class="btn btn-xs btn-success"><span class="glyphicon glyphicon-ok"></span></button>
             {{taskList.task}}
             <button type="button" ng-click="todo.deleteTask(taskList)" class="btn btn-xs btn-danger"><span class="glyphicon glyphicon-remove"></span></button>
           </li>

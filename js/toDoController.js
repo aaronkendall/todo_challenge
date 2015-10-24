@@ -24,7 +24,7 @@ toDoList.controller('toDoController', [function() {
     self.activeTasks.push({task: taskContent, complete: false});
   };
 
-  self.completedTask = function(task) {
+  self.taskCompleted = function(task) {
     task.complete = true;
     self.completedTasks.push(task);
   };
