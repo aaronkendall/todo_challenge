@@ -11,15 +11,17 @@ describe('toDoController', function() {
     var tasks = [
       {
         task: "Do some more coding",
-        active: true
+        active: true,
+        complete: false
       },
       {
         task: "Finish this challenge",
-        active: true
+        active: true,
+        complete: false
       }
     ];
     it('displays list of tasks', function() {
-      expect(ctrl.tasks).toEqual(tasks);
+      expect(ctrl.activeTasks).toEqual(tasks);
     });
   });
 });
